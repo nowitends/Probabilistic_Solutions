@@ -17,10 +17,8 @@ Due to lecture still being created we will update list along the way...
 
 - 03_probability_distributions.md
 
-- 04_discovery_formalism.md
+- 04_discovery_formalism.md [we are here]
 
-## In progress:
+- 05_pmf_pdf_cdf.md
 
-- 05_events_conditional_probability.md
-
-
+- 06_events_conditional_probability.md
