@@ -1,76 +1,144 @@
 # Binomial Distribution Presentation
 
-## Slide 1 — Title
-In this presentation, I will explain what the binomial distribution is, how it works, and where we use it in real life.
+## Probability and Statistics
 
 ---
 
-## Slide 2 — What is Binomial Distribution?
-The binomial distribution is a discrete probability distribution.
 
-It shows the number of successes in repeated experiments.
 
-Each experiment has only two possible results:
+# Slide 1 — Random Experiment
 
-- Success
-- Failure
+First, we define the random experiment.
 
-For example, when we flip a coin, we can get heads or tails.
+Our experiment is:
 
----
+- flipping a coin 5 times.
 
-## Slide 3 — Random Experiment
-A binomial experiment repeats the same action many times.
+Each flip has two outcomes:
 
-For example, we flip a coin 5 times.
+- Heads
+- Tails
 
-Each flip is independent.
+The flips are independent.
 
-This means one result does not change the next result.
+This means one result does not affect another result.
+
+This is important for the binomial distribution.
 
 ---
 
-## Slide 4 — Sample Space Ω
-The sample space contains all possible outcomes.
+# Slide 2 — Sample Space Ω
 
-For 5 coin flips, some outcomes are:
+Now we define the sample space Ω.
+
+The sample space contains all elementary outcomes.
+
+An elementary outcome is one complete sequence.
+
+Examples:
 
 - HHHHH
 - HHTTT
-- THTHT
+- HTHTH
+- TTTTT
 
-Each possible result is called an elementary outcome.
+The sample space contains all possible sequences of 5 coin flips.
 
 ---
 
-## Slide 5 — Random Variable X
-The random variable X counts the number of successes.
+# Slide 3 — Random Variable X
 
-For example:
+Next, we define the random variable X.
 
-If success means getting heads, then:
+The random variable counts the number of successes.
 
-`X(HHTHT) = 3`
+In this presentation:
+
+- success means getting Heads.
+
+Example:
+
+For the outcome:
+
+`HHTHT`
+
+we have:
+
+\[
+X(HHTHT)=3
+\]
 
 because there are 3 heads.
 
 ---
 
-## Slide 6 — Support of X
-The support of X is all possible values of the random variable.
+# Slide 4 — Support of X
 
-For 5 coin flips, X can be:
+Now we identify the support of X.
 
-`0, 1, 2, 3, 4, or 5`
+The support is the set of values taken by the random variable.
 
-This is different from the sample space.
+For 5 coin flips:
 
-The sample space contains outcomes, but the support contains values of X.
+\[
+X \in \{0,1,2,3,4,5\}
+\]
+
+Important:
+
+- the sample space contains outcomes,
+- the support contains numerical values.
+
+These are different concepts.
 
 ---
 
-## Slide 7 — PMF Formula
-The probability mass function (PMF) gives the probability of getting exactly k successes.
+# Slide 5 — Definition of Binomial Distribution
+
+The binomial distribution is a discrete probability distribution.
+
+It gives probabilities for repeated independent experiments.
+
+Conditions:
+
+- fixed number of trials,
+- two outcomes,
+- independent trials,
+- same probability of success.
+
+The distribution has two parameters:
+
+- `n` = number of trials,
+- `p` = probability of success.
+
+---
+
+# Slide 6 — Parameters
+
+For this example:
+
+\[
+n=5
+\]
+
+and
+
+\[
+p=0.5
+\]
+
+This means:
+
+- 5 coin flips,
+- probability of heads is 0.5.
+
+Changing parameters changes the graph of the distribution.
+
+---
+
+# Slide 7 — Probability Mass Function (PMF)
+
+The PMF gives the probability of exactly k successes.
 
 \[
 P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
@@ -78,98 +146,161 @@ P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
 
 Where:
 
-- `n` is the number of trials
-- `p` is the probability of success
-- `k` is the number of successes
+- `n` = number of trials,
+- `k` = number of successes,
+- `p` = probability of success.
+
+The PMF gives probability at one exact value.
 
 ---
 
-## Slide 8 — Example Probability
-Now let’s see an example.
+# Slide 8 — PMF Example
 
-Suppose we flip a coin 5 times.
+Now we calculate a probability.
 
-The probability of heads is `0.5`.
-
-We want to find the probability of getting exactly 3 heads.
-
-This is written as:
+We want:
 
 \[
-P(X = 3)
+P(X=3)
 \]
 
+This means:
+
+- probability of getting exactly 3 heads.
+
+We use:
+
+- `n = 5`
+- `k = 3`
+- `p = 0.5`
+
+Result:
+
+\[
+P(X=3)=0.3125
+\]
+
+So the probability is 31.25%.
+
 ---
 
-## Slide 9 — PMF Graph
-The PMF graph shows the probability for each value of X.
+# Slide 9 — PMF Graph
 
-The graph changes when `p` changes.
+The PMF graph shows probability values for every possible value of X.
 
-- Small `p` moves the graph to the left
-- Large `p` moves the graph to the right
+Parameter effects:
+
+- small `p` moves the graph left,
+- large `p` moves the graph right,
+- larger `n` makes the graph wider.
+
+Graphs help us understand probability visually.
 
 ---
 
-## Slide 10 — CDF
-The cumulative distribution function (CDF) shows cumulative probability.
+# Slide 10 — Cumulative Distribution Function (CDF)
+
+Now we study the CDF.
 
 \[
 F(x)=P(X\le x)
 \]
 
-It adds probabilities from left to right.
+The CDF adds probabilities from left to right.
+
+Example:
+
+\[
+P(X\le3)
+\]
+
+This means:
+
+- probability of at most 3 successes.
 
 The CDF always increases from 0 to 1.
 
 ---
 
-## Slide 11 — PMF and CDF Comparison
-The PMF gives the probability at one value.
+# Slide 11 — PMF and CDF Comparison
 
-Example:
+PMF and CDF are different.
 
-\[
-P(X = 3)
-\]
-
-The CDF gives probability up to a value.
-
-Example:
+PMF:
 
 \[
-P(X \le 3)
+P(X=3)
 \]
 
-Both functions help us understand probability distributions.
+- exact probability.
+
+CDF:
+
+\[
+P(X\le3)
+\]
+
+- cumulative probability.
+
+Both functions are important in probability theory.
 
 ---
 
-## Slide 12 — Real Applications
-Binomial distribution is used in many areas:
+# Slide 12 — Graphical Understanding
 
-- Exams
-- Medical tests
-- Quality control
-- Surveys
-- Coin flips
+We compare graphs for different values of:
 
-It is useful when there are only two outcomes.
+- `n`
+- `p`
+
+We study:
+
+- center,
+- spread,
+- symmetry,
+- concentration of probability.
+
+Some properties remain invariant:
+
+- probabilities stay between 0 and 1,
+- total probability is always 1.
 
 ---
 
-## Slide 13 — Parameter Effects
-Changing `p` changes the shape of the graph.
+# Slide 13 — Real Applications
 
-Changing `n` changes the spread of the graph.
+The binomial distribution has many practical applications.
 
-A larger `n` makes the graph wider.
+Examples:
+
+- exams,
+- surveys,
+- medical testing,
+- quality control,
+- reliability analysis.
+
+It is useful when there are only two outcomes:
+
+- success or failure.
 
 ---
 
-## Slide 14 — Conclusion
-In conclusion, the binomial distribution is useful for repeated experiments with two outcomes.
+# Slide 14 — Computational Tools
 
-It helps us calculate probabilities and understand random events.
+Computational tools help students visualize distributions.
 
-It is an important distribution in probability and statistics.
+Examples:
+
+- Python,
+- HTML and JavaScript,
+- statistical software.
+
+An application can allow users to:
+
+- choose a distribution,
+- change parameters,
+- display PMF and CDF,
+- compare probabilities.
+
+This improves technical understanding.
+
