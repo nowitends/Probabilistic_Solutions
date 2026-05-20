@@ -1,95 +1,144 @@
-# Task 3 — Binomial Distribution Bin(n,p)
+# Binomial Distribution Presentation
 
-## Presentation Script | B1 English | 7–10 Minutes
+## Probability and Statistics
 
 ---
 
-# PART 1 — The Experiment (1 min)
 
-First, I need to describe the random experiment.
 
-The experiment is:
-- We repeat a simple test **n times**.
-- Each test has only **two possible outcomes**: success or failure.
-- Each test is **independent**.
+# Slide 1 — Random Experiment
 
-This single test is called a **Bernoulli trial**.
+First, we define the random experiment.
 
-The Binomial Distribution is simply **n Bernoulli trials together**.
+Our experiment is:
 
-A special case:
+- flipping a coin 5 times.
 
-If `n = 1`, we get the **Bernoulli Distribution**:
+Each flip has two outcomes:
+
+- Heads
+- Tails
+
+The flips are independent.
+
+This means one result does not affect another result.
+
+This is important for the binomial distribution.
+
+---
+
+# Slide 2 — Sample Space Ω
+
+Now we define the sample space Ω.
+
+The sample space contains all elementary outcomes.
+
+An elementary outcome is one complete sequence.
+
+Examples:
+
+- HHHHH
+- HHTTT
+- HHTHT
+- TTTTT
+
+The sample space contains all possible sequences of 5 coin flips.
+
+---
+
+# Slide 3 — Random Variable X
+
+Next, we define the random variable X.
+
+The random variable counts the number of successes.
+
+In this presentation:
+
+- success means getting Heads.
+
+Example:
+
+For the outcome:
+
+`HHTHT`
+
+we have:
 
 \[
-\text{Bin}(1,p)
+X(HHTHT)=3
 \]
+
+because there are 3 heads.
 
 ---
 
-# PART 2 — Sample Space and Random Variable (1.5 min)
+# Slide 4 — Support of X
 
-Now I define the **sample space Ω**.
+Now we identify the support of X.
 
-The experiment is:
-- We flip a coin **n times**.
+The support is the set of values taken by the random variable.
 
-The sample space contains all possible **sequences** of results.
+For 5 coin flips:
 
-One sequence is called an **elementary outcome** `ω`.
-
-For example, if `n = 5`, one elementary outcome looks like this:
-
-```text
-ω = (H, T, H, H, T)
-```
-
-Here:
-- `H` = Heads
-- `T` = Tails
-
-Other examples:
-
-```text
-ω = (H, H, H, H, H)   ← all Heads
-ω = (T, T, T, T, T)   ← all Tails
-ω = (H, T, H, T, H)   ← mixed
-```
+\[
+X \in \{0,1,2,3,4,5\}
+\]
 
 Important:
 
-The sample space contains **sequences**.
+- the sample space contains outcomes,
+- the support contains numerical values.
 
-But we do not want sequences — we want **numbers**.
-
-So I define the **random variable X**.
-
-`X` counts the number of Heads in the sequence.
-
-```text
-X(H, T, H, H, T) = 3
-```
-
-`X = 3` because there are 3 Heads.
-
-The **support** of `X` is:
-
-```text
-X ∈ {0,1,2,3,...,n}
-```
-
-The support is **not** the sample space.
-
-- Sample space → sequences
-- Support → numbers
+These are different concepts.
 
 ---
 
-# PART 3 — The PMF (2 min)
+# Slide 5 — Definition of Binomial Distribution
 
-Now I write the **Probability Mass Function (PMF)**.
+The binomial distribution is a discrete probability distribution.
 
-The PMF gives the probability of **exactly k successes**.
+It gives probabilities for repeated independent experiments.
+
+Conditions:
+
+- fixed number of trials,
+- two outcomes,
+- independent trials,
+- same probability of success.
+
+The distribution has two parameters:
+
+- `n` = number of trials,
+- `p` = probability of success.
+
+---
+
+# Slide 6 — Parameters
+
+For this example:
+
+\[
+n=5
+\]
+
+and
+
+\[
+p=0.5
+\]
+
+This means:
+
+- 5 coin flips,
+- probability of heads is 0.5.
+
+Changing parameters changes the graph of the distribution.
+
+---
+
+# Slide 7 — Probability Mass Function (PMF)
+
+The PMF gives the probability of exactly k successes.
 
 \[
 P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
@@ -97,209 +146,160 @@ P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}
 
 Where:
 
-```text
-n = number of trials
-k = number of successes
-p = probability of success
-```
+- `n` = number of trials,
+- `k` = number of successes,
+- `p` = probability of success.
 
-Let me explain the formula:
-
-- `C(n,k)` counts the number of arrangements
-- `p^k` gives the probability of successes
-- `(1-p)^(n-k)` gives the probability of failures
-
-Example:
-
-`n = 5`, `p = 0.5`, `k = 3`
-
-\[
-P(X=3)=\binom{5}{3}(0.5)^3(0.5)^2
-\]
-
-\[
-=10 \times 0.125 \times 0.25
-\]
-
-\[
-=0.3125
-\]
-
-So the probability is:
-
-```text
-31.25%
-```
+The PMF gives probability at one exact value.
 
 ---
 
-# PART 4 — PMF Graph: What Changes? (1.5 min)
+# Slide 8 — PMF Example
 
-Now I look at the **shape of the PMF graph**.
+Now we calculate a probability.
 
-## Case 1 — Fixed n, Different p
+We want:
 
-```text
-n = 10, p = 0.2  → graph moves LEFT
-n = 10, p = 0.5  → graph is symmetric
-n = 10, p = 0.8  → graph moves RIGHT
-```
+\[
+P(X=3)
+\]
 
-When `p` increases, the graph moves to the **right**.
+This means:
 
-## Case 2 — Fixed p, Different n
+- probability of getting exactly 3 heads.
 
-```text
-p = 0.5, n = 5   → narrow graph
-p = 0.5, n = 20  → wider graph
-```
+We use:
 
-When `n` increases:
-- the graph becomes **wider**
-- and more **spread out**
+- `n = 5`
+- `k = 3`
+- `p = 0.5`
 
-What does NOT change?
-- All probabilities stay between 0 and 1
-- Total probability is always 1
+Result:
+
+\[
+P(X=3)=0.3125
+\]
+
+So the probability is 31.25%.
 
 ---
 
-# PART 5 — The CDF (1.5 min)
+# Slide 9 — PMF Graph
 
-Now the **Cumulative Distribution Function (CDF)**.
+The PMF graph shows probability values for every possible value of X.
 
-\[
-F(x)=P(X \le x)
-\]
+Parameter effects:
 
-The CDF adds probabilities from the left.
+- small `p` moves the graph left,
+- large `p` moves the graph right,
+- larger `n` makes the graph wider.
 
-It:
-- starts at 0
-- ends at 1
-- never decreases
+Graphs help us understand probability visually.
 
-The PMF and CDF answer different questions:
+---
 
-```text
-PMF → P(X = 3)   → exactly 3
-CDF → P(X ≤ 3)   → 3 or less
-```
+# Slide 10 — Cumulative Distribution Function (CDF)
 
-We can also calculate other probabilities:
+Now we study the CDF.
 
 \[
-P(X \ge k)=1-P(X \le k-1)
+F(x)=P(X\le x)
 \]
 
-\[
-P(a \le X \le b)=P(X \le b)-P(X \le a-1)
-\]
+The CDF adds probabilities from left to right.
 
 Example:
 
 \[
-P(X \ge 3)=1-P(X \le 2)
+P(X\le3)
 \]
 
-\[
-=1-0.5
-\]
+This means:
 
-\[
-=0.5
-\]
+- probability of at most 3 successes.
+
+The CDF always increases from 0 to 1.
 
 ---
 
-# PART 6 — Real Applications (1 min)
+# Slide 11 — PMF and CDF Comparison
 
-The Binomial Distribution is very useful in real life.
+PMF and CDF are different.
 
-## Examples
-
-### Exams
-
-A student guesses on 10 questions.
-
-```text
-Bin(10,0.25)
-```
-
-### Medicine
-
-A treatment works for 70% of patients.
-
-We test 20 patients.
-
-```text
-Bin(20,0.7)
-```
-
-### Quality Control
-
-A factory checks 100 products.
-
-Each product has a 2% defect probability.
-
-```text
-Bin(100,0.02)
-```
-
-### Surveys
-
-40% of people support a new law.
-
-We ask 50 people.
-
-```text
-Bin(50,0.4)
-```
-
-In all examples:
-- two outcomes
-- independent trials
-- fixed n
-
----
-
-# PART 7 — Conclusion (30 sec)
-
-Let me summarize the key points.
-
-The Binomial Distribution:
+PMF:
 
 \[
-\text{Bin}(n,p)
+P(X=3)
 \]
 
-models:
-- `n` independent trials
-- two outcomes
-- same probability `p`
+- exact probability.
 
-The PMF gives probability at **one exact value**.
+CDF:
 
-The CDF gives probability for **k or less**.
+\[
+P(X\le3)
+\]
 
-When:
-- `p` increases → graph moves right
-- `n` increases → graph becomes wider
+- cumulative probability.
 
-Thank you.
+Both functions are important in probability theory.
 
 ---
 
-# Quick Reference Card
+# Slide 12 — Graphical Understanding
 
-| Symbol | Meaning | Example |
-|---|---|---|
-| n | number of trials | 5 coin flips |
-| p | probability of success | 0.5 |
-| ω | elementary outcome | (H,T,H,H,T) |
-| X(ω) | number of Heads | X = 3 |
-| Support | possible values | {0,1,2,3,4,5} |
-| PMF | P(X=k) | P(X=3)=0.3125 |
-| CDF | P(X≤k) | P(X≤3)=0.8125 |
-| P(X≥k) | 1−P(X≤k−1) | P(X≥3)=0.5 |
-| P(a≤X≤b) | P(X≤b)-P(X≤a−1) | P(2≤X≤4) |
+We compare graphs for different values of:
+
+- `n`
+- `p`
+
+We study:
+
+- center,
+- spread,
+- symmetry,
+- concentration of probability.
+
+Some properties remain invariant:
+
+- probabilities stay between 0 and 1,
+- total probability is always 1.
+
+---
+
+# Slide 13 — Real Applications
+
+The binomial distribution has many practical applications.
+
+Examples:
+
+- exams,
+- surveys,
+- medical testing,
+- quality control,
+- reliability analysis.
+
+It is useful when there are only two outcomes:
+
+- success or failure.
+
+---
+
+# Slide 14 — Computational Tools
+
+Computational tools help students visualize distributions.
+
+Examples:
+
+- Python,
+- HTML and JavaScript,
+- statistical software.
+
+An application can allow users to:
+
+- choose a distribution,
+- change parameters,
+- display PMF and CDF,
+- compare probabilities.
+
+This improves technical understanding.
